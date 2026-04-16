@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+"j_hx1838\startup_stm32f103xe.o"
+"j_hx1838\main.o"
+"j_hx1838\gpio.o"
+"j_hx1838\tim.o"
+"j_hx1838\stm32f1xx_it.o"
+"j_hx1838\stm32f1xx_hal_msp.o"
+"j_hx1838\stm32f1xx_hal_gpio_ex.o"
+"j_hx1838\stm32f1xx_hal_tim.o"
+"j_hx1838\stm32f1xx_hal_tim_ex.o"
+"j_hx1838\stm32f1xx_hal.o"
+"j_hx1838\stm32f1xx_hal_rcc.o"
+"j_hx1838\stm32f1xx_hal_rcc_ex.o"
+"j_hx1838\stm32f1xx_hal_gpio.o"
+"j_hx1838\stm32f1xx_hal_dma.o"
+"j_hx1838\stm32f1xx_hal_cortex.o"
+"j_hx1838\stm32f1xx_hal_pwr.o"
+"j_hx1838\stm32f1xx_hal_flash.o"
+"j_hx1838\stm32f1xx_hal_flash_ex.o"
+"j_hx1838\stm32f1xx_hal_exti.o"
+"j_hx1838\system_stm32f1xx.o"
+"j_hx1838\hx_1838.o"
+--strict --scatter "J_HX1838\J_HX1838.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "J_HX1838.map" -o J_HX1838\J_HX1838.axf

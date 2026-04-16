@@ -1,0 +1,309 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 2, 3, LIC=KIVNB-2DTFK-24PSS-LKIEZ-UQX6D-WS0KM
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
+Toolchain Path:  C:\keil5\Core\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\UserX\Desktop\Test\J_mpu9250\MDK-ARM\J_mpu9250.uvprojx
+Project File Date:  07/09/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\keil5\Core\ARM\ARMCC\Bin'
+Rebuild target 'J_mpu9250'
+assembling startup_stm32f103xe.s...
+compiling gpio.c...
+compiling stm32f1xx_it.c...
+compiling stm32f1xx_hal_gpio_ex.c...
+compiling i2c.c...
+compiling tim.c...
+compiling stm32f1xx_hal_timebase_tim.c...
+compiling stm32f1xx_hal_rcc_ex.c...
+compiling stm32f1xx_hal_msp.c...
+compiling stm32f1xx_hal.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling freertos.c...
+compiling main.c...
+../Core/Src/main.c(99): warning:  #223-D: function "mpu9250_Start" declared implicitly
+  mpu9250_Start();
+../Core/Src/main.c(187): warning:  #223-D: function "mpu9250go" declared implicitly
+      mpu9250go();
+../Core/Src/main.c: 2 warnings, 0 errors
+compiling usart.c...
+compiling stm32f1xx_hal_rcc.c...
+compiling stm32f1xx_hal_tim_ex.c...
+compiling croutine.c...
+compiling event_groups.c...
+compiling list.c...
+compiling stream_buffer.c...
+compiling timers.c...
+compiling queue.c...
+compiling heap_4.c...
+compiling tasks.c...
+compiling stm32f1xx_hal_tim.c...
+compiling port.c...
+compiling eMPL_outputs.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+../mpl/mllite/ml_math_func.h(132): warning:  #1-D: last line of file ends without a newline
+  #endif // INVENSENSE_INV_MATH_FUNC_H__
+../mpl/driver/include/mlmath.h(95): warning:  #1-D: last line of file ends without a newline
+  #endif /* !_ML_MATH_H_ */
+../mpl/mllite/start_manager.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif  // INV_START_MANAGER_H__
+../mpl/mllite/results_holder.h(81): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_RESULTS_HOLDER_H__
+..\mpl\eMPL-hal\eMPL_outputs.c(322): warning:  #1-D: last line of file ends without a newline
+   */
+..\mpl\eMPL-hal\eMPL_outputs.c: 7 warnings, 0 errors
+compiling data_builder.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+..\mpl\mllite\ml_math_func.h(132): warning:  #1-D: last line of file ends without a newline
+  #endif // INVENSENSE_INV_MATH_FUNC_H__
+../mpl/driver/include/mlmath.h(95): warning:  #1-D: last line of file ends without a newline
+  #endif /* !_ML_MATH_H_ */
+..\mpl\mllite\storage_manager.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif  /* INV_STORAGE_MANAGER_H__ */
+..\mpl\mllite\results_holder.h(81): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_RESULTS_HOLDER_H__
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+..\mpl\mllite\data_builder.c(1263): warning:  #1-D: last line of file ends without a newline
+   */
+..\mpl\mllite\data_builder.c: 8 warnings, 0 errors
+compiling stm32f1xx_hal_cortex.c...
+compiling stm32f1xx_hal_flash.c...
+compiling system_stm32f1xx.c...
+compiling hal_outputs.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+..\mpl\mllite\hal_outputs.h(45): warning:  #1-D: last line of file ends without a newline
+  #endif                          // INV_HAL_OUTPUTS_H__
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+..\mpl\mllite\ml_math_func.h(132): warning:  #1-D: last line of file ends without a newline
+  #endif // INVENSENSE_INV_MATH_FUNC_H__
+../mpl/driver/include/mlmath.h(95): warning:  #1-D: last line of file ends without a newline
+  #endif /* !_ML_MATH_H_ */
+..\mpl\mllite\start_manager.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif  // INV_START_MANAGER_H__
+..\mpl\mllite\results_holder.h(81): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_RESULTS_HOLDER_H__
+..\mpl\mllite\hal_outputs.c: 8 warnings, 0 errors
+compiling stm32f1xx_hal_flash_ex.c...
+compiling stm32f1xx_hal_pwr.c...
+compiling stm32f1xx_hal_exti.c...
+compiling stm32f1xx_hal_dma.c...
+compiling message_layer.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+..\mpl\mllite\message_layer.c: 3 warnings, 0 errors
+compiling mlmath.c...
+..\mpl\mllite\mlmath.c(68): warning:  #1-D: last line of file ends without a newline
+  }
+..\mpl\mllite\mlmath.c: 1 warning, 0 errors
+compiling stm32f1xx_hal_uart.c...
+compiling mpl.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+..\mpl\mllite\storage_manager.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif  /* INV_STORAGE_MANAGER_H__ */
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+..\mpl\mllite\mpl.h(24): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_MPL_H__
+..\mpl\mllite\start_manager.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif  // INV_START_MANAGER_H__
+..\mpl\mllite\results_holder.h(81): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_RESULTS_HOLDER_H__
+../mpl/driver/include/mlinclude.h(38): warning:  #1-D: last line of file ends without a newline
+  #endif //INV_INCLUDE_H__
+..\mpl\mllite\mpl.c(72): warning:  #1-D: last line of file ends without a newline
+   */
+..\mpl\mllite\mpl.c: 9 warnings, 0 errors
+compiling mpu9250.c...
+compiling ml_math_func.c...
+../mpl/driver/include/mlmath.h(95): warning:  #1-D: last line of file ends without a newline
+  #endif /* !_ML_MATH_H_ */
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+..\mpl\mllite\ml_math_func.h(132): warning:  #1-D: last line of file ends without a newline
+  #endif // INVENSENSE_INV_MATH_FUNC_H__
+../mpl/driver/include/mlinclude.h(38): warning:  #1-D: last line of file ends without a newline
+  #endif //INV_INCLUDE_H__
+..\mpl\mllite\ml_math_func.c(780): warning:  #1-D: last line of file ends without a newline
+   */
+..\mpl\mllite\ml_math_func.c: 6 warnings, 0 errors
+compiling start_manager.c...
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+..\mpl\mllite\start_manager.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif  // INV_START_MANAGER_H__
+..\mpl\mllite\start_manager.c(105): warning:  #1-D: last line of file ends without a newline
+   */
+..\mpl\mllite\start_manager.c: 5 warnings, 0 errors
+compiling storage_manager.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+..\mpl\mllite\storage_manager.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif  /* INV_STORAGE_MANAGER_H__ */
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+..\mpl\mllite\ml_math_func.h(132): warning:  #1-D: last line of file ends without a newline
+  #endif // INVENSENSE_INV_MATH_FUNC_H__
+../mpl/driver/include/mlmath.h(95): warning:  #1-D: last line of file ends without a newline
+  #endif /* !_ML_MATH_H_ */
+..\mpl\mllite\storage_manager.c(204): warning:  #1-D: last line of file ends without a newline
+   */
+..\mpl\mllite\storage_manager.c: 7 warnings, 0 errors
+compiling fun.c...
+..\code\fun.c(8): warning:  #177-D: variable "pitch"  was declared but never referenced
+  	float pitch,roll,yaw; 	        //欧拉角
+..\code\fun.c(8): warning:  #177-D: variable "roll"  was declared but never referenced
+  	float pitch,roll,yaw; 	        //欧拉角
+..\code\fun.c(8): warning:  #177-D: variable "yaw"  was declared but never referenced
+  	float pitch,roll,yaw; 	        //欧拉角
+..\code\fun.c(9): warning:  #177-D: variable "aacx"  was declared but never referenced
+  	short aacx,aacy,aacz;	        //加速度传感器原始数据
+..\code\fun.c(9): warning:  #177-D: variable "aacy"  was declared but never referenced
+  	short aacx,aacy,aacz;	        //加速度传感器原始数据
+..\code\fun.c(9): warning:  #177-D: variable "aacz"  was declared but never referenced
+  	short aacx,aacy,aacz;	        //加速度传感器原始数据
+..\code\fun.c(10): warning:  #177-D: variable "gyrox"  was declared but never referenced
+  	short gyrox,gyroy,gyroz;        //陀螺仪原始数据 
+..\code\fun.c(10): warning:  #177-D: variable "gyroy"  was declared but never referenced
+  	short gyrox,gyroy,gyroz;        //陀螺仪原始数据 
+..\code\fun.c(10): warning:  #177-D: variable "gyroz"  was declared but never referenced
+  	short gyrox,gyroy,gyroz;        //陀螺仪原始数据 
+..\code\fun.c(11): warning:  #177-D: variable "temp"  was declared but never referenced
+      short temp;                     //温度
+..\code\fun.c: 10 warnings, 0 errors
+compiling results_holder.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+..\mpl\mllite\results_holder.h(81): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_RESULTS_HOLDER_H__
+..\mpl\mllite\ml_math_func.h(132): warning:  #1-D: last line of file ends without a newline
+  #endif // INVENSENSE_INV_MATH_FUNC_H__
+../mpl/driver/include/mlmath.h(95): warning:  #1-D: last line of file ends without a newline
+  #endif /* !_ML_MATH_H_ */
+..\mpl\mllite\start_manager.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif  // INV_START_MANAGER_H__
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+..\mpl\mllite\results_holder.c(522): warning:  #1-D: last line of file ends without a newline
+   */
+..\mpl\mllite\results_holder.c: 8 warnings, 0 errors
+compiling log_stm32.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+..\mpl\driver\stm32L\log_stm32.c: 3 warnings, 0 errors
+compiling inv_mpu_dmp_motion_driver.c...
+compiling stm32f1xx_hal_i2c.c...
+compiling cmsis_os2.c...
+compiling inv_mpu.c...
+../mpl/driver/include/stdint_invensense.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif // STDINT_INVENSENSE_H
+../mpl/driver/include/mltypes.h(262): warning:  #1-D: last line of file ends without a newline
+  #endif				/* MLTYPES_H */
+../mpl/mllite/mpl.h(24): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_MPL_H__
+../mpl/mllite/hal_outputs.h(45): warning:  #1-D: last line of file ends without a newline
+  #endif                          // INV_HAL_OUTPUTS_H__
+../mpl/driver/include/mlmath.h(95): warning:  #1-D: last line of file ends without a newline
+  #endif /* !_ML_MATH_H_ */
+../mpl/mllite/ml_math_func.h(132): warning:  #1-D: last line of file ends without a newline
+  #endif // INVENSENSE_INV_MATH_FUNC_H__
+../mpl/mllite/mpl.h(24): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_MPL_H__
+../mpl/mllite/results_holder.h(81): warning:  #1-D: last line of file ends without a newline
+  #endif // INV_RESULTS_HOLDER_H__
+../mpl/mllite/start_manager.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif  // INV_START_MANAGER_H__
+../mpl/mllite/storage_manager.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif  /* INV_STORAGE_MANAGER_H__ */
+../mpl/driver/include/log.h(372): warning:  #1-D: last line of file ends without a newline
+  #endif				/* _LIBS_CUTILS_MPL_LOG_H */
+../mpl/driver/include/mlinclude.h(38): warning:  #1-D: last line of file ends without a newline
+  #endif //INV_INCLUDE_H__
+../mpl/mllite/invensense.h(28): warning:  #1-D: last line of file ends without a newline
+  //#include "..\HAL\include\mlos.h"
+../mpl/mpl/fusion_9axis.h(38): warning:  #1-D: last line of file ends without a newline
+  #endif // MLDMP_FUSION9AXIS_H__
+../mpl/mpl/heading_from_gyro.h(33): warning:  #1-D: last line of file ends without a newline
+  #endif  /* _HEADING_FROM_GYRO_H_ */
+..\mpl\driver\eMPL\inv_mpu.c: 15 warnings, 0 errors
+linking...
+Program Size: Code=60580 RO-data=4720 RW-data=268 ZI-data=13428  
+FromELF: creating hex file...
+"J_mpu9250\J_mpu9250.axf" - 0 Error(s), 92 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_J_mpu9250
+  C:/keil5/Pack/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/keil5/Pack/Keil/STM32F1xx_DFP/2.4.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+Build Time Elapsed:  00:00:06
+</pre>
+</body>
+</html>

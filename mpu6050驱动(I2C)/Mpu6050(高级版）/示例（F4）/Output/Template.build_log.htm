@@ -1,0 +1,216 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.39.0.0
+Copyright (C) 2023 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: SRV,JHKUSD 2046138442@qq.com, WEGC, LIC=RC93N-YKRNX-JJM6S-LG9BX-HBEK6-CXEQS
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.39.0.0
+Toolchain Path:  D:\UV4\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.39.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.2.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+D:\AAA野火资料\AAA野火F103ZET6霸道V2网盘20230504\F407\FreeRTOS_实战\3.软件定时器和事件组示例函数 - 副本\Project\RVMDK（uv5）\BH-F407.uvprojx
+Project File Date:  11/24/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\UV4\ARM\ARMCC\Bin'
+Rebuild target '多彩流水灯'
+assembling startup_stm32f40xx.s...
+compiling stm32f4xx_dac.c...
+compiling stm32f4xx_dbgmcu.c...
+compiling stm32f4xx_cryp_des.c...
+compiling stm32f4xx_can.c...
+compiling stm32f4xx_crc.c...
+compiling system_stm32f4xx.c...
+compiling stm32f4xx_cec.c...
+compiling misc.c...
+compiling stm32f4xx_cryp_tdes.c...
+compiling stm32f4xx_dcmi.c...
+compiling stm32f4xx_adc.c...
+compiling stm32f4xx_cryp.c...
+compiling stm32f4xx_cryp_aes.c...
+compiling stm32f4xx_dma.c...
+compiling stm32f4xx_exti.c...
+compiling stm32f4xx_flash_ramfunc.c...
+compiling stm32f4xx_fmpi2c.c...
+compiling stm32f4xx_flash.c...
+compiling stm32f4xx_hash_md5.c...
+compiling stm32f4xx_fsmc.c...
+compiling stm32f4xx_hash.c...
+compiling stm32f4xx_gpio.c...
+compiling stm32f4xx_hash_sha1.c...
+compiling stm32f4xx_i2c.c...
+compiling stm32f4xx_iwdg.c...
+compiling stm32f4xx_qspi.c...
+compiling stm32f4xx_pwr.c...
+compiling stm32f4xx_rng.c...
+compiling stm32f4xx_rcc.c...
+compiling stm32f4xx_sai.c...
+compiling stm32f4xx_sdio.c...
+compiling stm32f4xx_rtc.c...
+compiling stm32f4xx_spdifrx.c...
+compiling stm32f4xx_syscfg.c...
+compiling stm32f4xx_spi.c...
+compiling stm32f4xx_usart.c...
+compiling stm32f4xx_wwdg.c...
+compiling Pid.c...
+..\..\User\PID\Pid.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\..\User\PID\Pid.c: 1 warning, 0 errors
+compiling stm32f4xx_tim.c...
+compiling bsp_led.c...
+compiling key.c...
+..\..\User\key\key.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\key\key.c: 1 warning, 0 errors
+compiling stm32f4xx_it.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\stm32f4xx_it.c(139): warning:  #1-D: last line of file ends without a newline
+  /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+..\..\User\stm32f4xx_it.c: 2 warnings, 0 errors
+compiling main.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\key\key.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\UART\usart1.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif /* __USART1_H */
+..\..\User\UART\usart2.h(46): warning:  #1-D: last line of file ends without a newline
+  #endif /* __USART2_H */
+..\..\User\Mpu6050\Mpu6050.h(115): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\PID\PID.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\..\User\Moter\kalman_filter.h(42): warning:  #1-D: last line of file ends without a newline
+  #endif /* KALMAN_FILTER_H */
+..\..\User\oled\oled.h(36): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\main.c(20): warning:  #47-D: incompatible redefinition of macro "M_PI"  (declared at line 12 of "..\..\User\Mpu6050\Mpu6050.h")
+  #define M_PI 3.1415926535
+..\..\User\main.c(355): warning:  #177-D: variable "data"  was declared but never referenced
+      MPU6050_Data data;
+..\..\User\main.c(356): warning:  #177-D: variable "angles"  was declared but never referenced
+      Angles angles;
+..\..\User\main.c(383): warning:  #177-D: variable "MuBiao_Y"  was declared but never referenced
+  	int MuBiao_Y=200;
+..\..\User\main.c(397): warning:  #550-D: variable "next_y"  was set but never used
+      double next_x, next_y;
+..\..\User\main.c: 13 warnings, 0 errors
+compiling kalman_filte.c...
+..\..\User\Moter\kalman_filter.h(42): warning:  #1-D: last line of file ends without a newline
+  #endif /* KALMAN_FILTER_H */
+..\..\User\Moter\kalman_filte.c(160): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\Moter\kalman_filte.c: 2 warnings, 0 errors
+compiling usart1.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\UART\usart1.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif /* __USART1_H */
+..\..\User\UART\usart1.c: 2 warnings, 0 errors
+compiling Mpu6050.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\Mpu6050\mpu6050.h(115): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\Mpu6050\Mpu6050.c: 2 warnings, 0 errors
+compiling usart2.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\UART\usart2.h(46): warning:  #1-D: last line of file ends without a newline
+  #endif /* __USART2_H */
+..\..\User\UART\usart2.c(292): warning:  #177-D: variable "i"  was declared but never referenced
+      int i;
+..\..\User\UART\usart2.c(457): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\UART\usart2.c: 4 warnings, 0 errors
+compiling usart3.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\UART\usart3.h(44): warning:  #1-D: last line of file ends without a newline
+  #endif /* __USART3_H */
+..\..\User\UART\usart3.c(385): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\UART\usart3.c: 3 warnings, 0 errors
+compiling PWM.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\Moter\PWM.h(97): warning:  #1-D: last line of file ends without a newline
+  #endif /* __PWM_DRIVER_H */
+..\..\User\Moter\PWM.c(249): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\Moter\PWM.c: 3 warnings, 0 errors
+compiling Moter.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\Moter\PWM.h(97): warning:  #1-D: last line of file ends without a newline
+  #endif /* __PWM_DRIVER_H */
+..\..\User\Moter\Moter.c: 2 warnings, 0 errors
+compiling oled.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\User\oled\oled.c: 1 warning, 0 errors
+compiling croutine.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\src\croutine.c: 1 warning, 0 errors
+compiling event_groups.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\src\event_groups.c: 1 warning, 0 errors
+compiling list.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\src\list.c: 1 warning, 0 errors
+compiling queue.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\src\queue.c: 1 warning, 0 errors
+compiling port.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\port\RVDS\ARM_CM4F\port.c: 1 warning, 0 errors
+compiling tasks.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\src\tasks.c: 1 warning, 0 errors
+compiling timers.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\src\timers.c: 1 warning, 0 errors
+compiling heap_4.c...
+..\..\User\FreeRTOSConfig.h(180): warning:  #1-D: last line of file ends without a newline
+  #endif /* FREERTOS_CONFIG_H */
+..\..\FreeRTOS\port\MemMang\heap_4.c: 1 warning, 0 errors
+linking...
+Program Size: Code=23792 RO-data=2704 RW-data=228 ZI-data=39076  
+FromELF: creating hex file...
+"..\..\Output\Template.axf" - 0 Error(s), 44 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.3.1.0.pack
+                Keil::STM32F4xx_DFP@3.1.0
+                STMicroelectronics STM32F4 Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:04
+</pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+"j_1.44tft_lcd\startup_stm32f103xe.o"
+"j_1.44tft_lcd\main.o"
+"j_1.44tft_lcd\gpio.o"
+"j_1.44tft_lcd\spi.o"
+"j_1.44tft_lcd\usart.o"
+"j_1.44tft_lcd\stm32f1xx_it.o"
+"j_1.44tft_lcd\stm32f1xx_hal_msp.o"
+"j_1.44tft_lcd\stm32f1xx_hal_gpio_ex.o"
+"j_1.44tft_lcd\stm32f1xx_hal_spi.o"
+"j_1.44tft_lcd\stm32f1xx_hal.o"
+"j_1.44tft_lcd\stm32f1xx_hal_rcc.o"
+"j_1.44tft_lcd\stm32f1xx_hal_rcc_ex.o"
+"j_1.44tft_lcd\stm32f1xx_hal_gpio.o"
+"j_1.44tft_lcd\stm32f1xx_hal_dma.o"
+"j_1.44tft_lcd\stm32f1xx_hal_cortex.o"
+"j_1.44tft_lcd\stm32f1xx_hal_pwr.o"
+"j_1.44tft_lcd\stm32f1xx_hal_flash.o"
+"j_1.44tft_lcd\stm32f1xx_hal_flash_ex.o"
+"j_1.44tft_lcd\stm32f1xx_hal_exti.o"
+"j_1.44tft_lcd\stm32f1xx_hal_uart.o"
+"j_1.44tft_lcd\system_stm32f1xx.o"
+"j_1.44tft_lcd\lcd.o"
+"j_1.44tft_lcd\lcd_init.o"
+--strict --scatter "J_1.44TFT_LCD\J_1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "J_1.map" -o J_1.44TFT_LCD\J_1.44TFT_LCD

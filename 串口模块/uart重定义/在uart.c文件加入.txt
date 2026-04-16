@@ -1,30 +1,15 @@
 /* USER CODE BEGIN 1 */
  
- 
-//加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
-//#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)	
-#if 1
-//#pragma import(__use_no_semihosting)             
-//标准库需要的支持函数                 
-struct __FILE 
-{ 
-	int handle; 
-}; 
- 
-FILE __stdout;       
-//定义_sys_exit()以避免使用半主机模式    
-void _sys_exit(int x) 
-{ 
-	x = x; 
-} 
-//重定义fputc函数 
 int fputc(int ch, FILE *f)
 { 	
 	 HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0x0001);  
 	return ch;
 }
-#endif 
- 
  
  
 /* USER CODE END 1 */
+
+/*******************************************
+记得外部声明stdio.h
+和打开微库
+*******************************************/

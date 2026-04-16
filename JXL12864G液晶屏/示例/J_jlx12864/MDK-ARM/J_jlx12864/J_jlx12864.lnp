@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"j_jlx12864\startup_stm32f103xe.o"
+"j_jlx12864\main.o"
+"j_jlx12864\gpio.o"
+"j_jlx12864\stm32f1xx_it.o"
+"j_jlx12864\stm32f1xx_hal_msp.o"
+"j_jlx12864\stm32f1xx_hal_gpio_ex.o"
+"j_jlx12864\stm32f1xx_hal.o"
+"j_jlx12864\stm32f1xx_hal_rcc.o"
+"j_jlx12864\stm32f1xx_hal_rcc_ex.o"
+"j_jlx12864\stm32f1xx_hal_gpio.o"
+"j_jlx12864\stm32f1xx_hal_dma.o"
+"j_jlx12864\stm32f1xx_hal_cortex.o"
+"j_jlx12864\stm32f1xx_hal_pwr.o"
+"j_jlx12864\stm32f1xx_hal_flash.o"
+"j_jlx12864\stm32f1xx_hal_flash_ex.o"
+"j_jlx12864\stm32f1xx_hal_exti.o"
+"j_jlx12864\system_stm32f1xx.o"
+"j_jlx12864\jxl12864g.o"
+--strict --scatter "J_jlx12864\J_jlx12864.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "J_jlx12864.map" -o J_jlx12864\J_jlx12864.axf

@@ -1,0 +1,55 @@
+IWDG特性
+使用独立的32kHz LSI时钟（不受主时钟影响）
+
+自由运行递减计数器
+
+复位条件：计数器值减至0x000
+
+2.2 配置步骤（CubeMX+HAL库）
+硬件配置
+使能IWDG：在CubeMX中Analog → IWDG激活
+
+设置分频系数（Prescaler）
+
+设置重载值（Reload）
+2.3 超时时间计算
+公式：
+Timeout = (Prescaler / LSI_freq) * Reload
+以LSI=32kHz，Prescaler=32，Reload=0xFFF为例：
+Timeout = (32 / 32000) * 4095 ≈ 4.095秒
+
+代码示例：
+/* IWDG初始化 */
+IWDG_HandleTypeDef hiwdg;
+ 
+void MX_IWDG_Init(void)
+{
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_32;  // 32分频
+  hiwdg.Init.Reload = 0xFFF;                 // 重载值
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+ 
+/* 喂狗函数 */
+void Feed_IWDG(void)
+{
+  HAL_IWDG_Refresh(&hiwdg);
+}
+ 
+/* 主函数示例 */
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_IWDG_Init();
+ 
+  while (1)
+  {
+    // 业务代码...
+    Feed_IWDG();  // 定期喂狗
+    HAL_Delay(500);
+  }
+}

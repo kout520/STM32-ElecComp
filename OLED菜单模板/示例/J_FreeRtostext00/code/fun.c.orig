@@ -1,0 +1,107 @@
+#include "headfile.h"
+
+//按键参数
+uint8_t key0_state;
+uint8_t key0_last_state;
+uint8_t key1_state;
+uint8_t key1_last_state;
+uint8_t key2_state;
+uint8_t key2_last_state;
+
+//lcd参数
+uint8_t lcd_flag=0;
+char text[30];
+uint8_t x ,y ,z = 0;
+uint8_t page_flag;
+uint8_t reg_flag;
+
+void key_scan(void)
+{
+    key0_state = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+    key1_state = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_3);
+    key2_state = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_4);
+    if(key0_state == 0 && key0_last_state == 1)
+    {
+        lcd_flag++;
+        lcd_flag %=2;
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_5);
+    }
+    if(key1_state == 0 && key1_last_state == 1)
+    {
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_5);
+        if(lcd_flag == 0)
+        {
+            page_flag++;
+            page_flag %=3;
+            switch (page_flag)
+            {
+                case 0:
+                    
+                    break;
+                case 1:
+                    y++;
+                    break;
+                case 2:
+                    
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    if(key2_state == 0 && key2_last_state == 1)
+    {
+            if(lcd_flag == 0)
+        {
+            page_flag++;
+            page_flag %=3;
+            switch (page_flag)
+            {
+                case 0:
+                    
+                    break;
+                case 1:
+                    y++;
+                    break;
+                case 2:
+                    
+                    break;
+                default:
+                    break;
+            }
+        }
+        HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_5);
+    }
+
+    key0_last_state = key0_state;
+    key1_last_state = key1_state;
+    key2_last_state = key2_state;
+}
+
+
+void lcd_show(void)
+{
+    switch(lcd_flag)
+    {
+        case 0:
+            page_show();
+            break;
+        case 1:
+            reg_show();
+            break;
+        default:
+            break;
+    }
+}
+void page_show(void)
+{
+    sprintf(text, " %d  X  %d  =  %d\r\n", x,y,z);
+    LCD_ShowString(10,40,210,24,24,(uint8_t *)text);
+    
+}
+void reg_show(void)
+{
+    LCD_ShowString(10,40,210,24,24,(uint8_t *)"66666666");
+}
+
+

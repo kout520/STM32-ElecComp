@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"j_tcs347\startup_stm32f103xe.o"
+"j_tcs347\main.o"
+"j_tcs347\gpio.o"
+"j_tcs347\i2c.o"
+"j_tcs347\usart.o"
+"j_tcs347\stm32f1xx_it.o"
+"j_tcs347\stm32f1xx_hal_msp.o"
+"j_tcs347\stm32f1xx_hal_gpio_ex.o"
+"j_tcs347\stm32f1xx_hal_i2c.o"
+"j_tcs347\stm32f1xx_hal.o"
+"j_tcs347\stm32f1xx_hal_rcc.o"
+"j_tcs347\stm32f1xx_hal_rcc_ex.o"
+"j_tcs347\stm32f1xx_hal_gpio.o"
+"j_tcs347\stm32f1xx_hal_dma.o"
+"j_tcs347\stm32f1xx_hal_cortex.o"
+"j_tcs347\stm32f1xx_hal_pwr.o"
+"j_tcs347\stm32f1xx_hal_flash.o"
+"j_tcs347\stm32f1xx_hal_flash_ex.o"
+"j_tcs347\stm32f1xx_hal_exti.o"
+"j_tcs347\stm32f1xx_hal_uart.o"
+"j_tcs347\system_stm32f1xx.o"
+"j_tcs347\tcs347.o"
+--library_type=microlib --strict --scatter "J_TCS347\J_TCS347.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "J_TCS347.map" -o J_TCS347\J_TCS347.axf
