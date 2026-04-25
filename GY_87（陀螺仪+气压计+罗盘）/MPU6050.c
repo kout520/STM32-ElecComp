@@ -1,79 +1,127 @@
 #include "MPU6050.h"
-#include "IIC.h"
-#include "lcd.h"
-#include <stdint.h>
+#include "main.h"
 
-void	MPU6050_Initial(void)
+extern I2C_HandleTypeDef hi2c2;
+
+/* 写单个寄存器 */
+static HAL_StatusTypeDef MPU6050_WriteReg(uint8_t reg, uint8_t value)
 {
-	Single_Write(MPU6050_Addr,PWR_MGMT_1, 0x00);	//解除休眠状态
-	Single_Write(MPU6050_Addr,SMPLRT_DIV, 0x07);	//陀螺仪采样率
-	Single_Write(MPU6050_Addr,CONFIG, 0x06);			//5Hz 
-
-	Single_Write(MPU6050_Addr,INT_PIN_CFG, 0x42);	//使能旁路I2C
-	Single_Write(MPU6050_Addr,USER_CTRL, 0x40);		//使能旁路I2C
-
-	Single_Write(MPU6050_Addr,GYRO_CONFIG, 0x18);   
-	Single_Write(MPU6050_Addr,ACCEL_CONFIG, 0x01);
+    return HAL_I2C_Mem_Write(&hi2c2,
+                             MPU6050_ADDR,
+                             reg,
+                             I2C_MEMADD_SIZE_8BIT,
+                             &value,
+                             1,
+                             100);
 }
 
-uint8_t	MPU6050_Read_GYRO(void)
+/* 读单个寄存器 */
+static HAL_StatusTypeDef MPU6050_ReadReg(uint8_t reg, uint8_t *value)
 {
-	unsigned char BUF[10];
-	short T_X,T_Y,T_Z,T_T;
-
-	BUF[0]=Single_Read(MPU6050_Addr,GYRO_XOUT_L); 
-	BUF[1]=Single_Read(MPU6050_Addr,GYRO_XOUT_H);
-	T_X=	(BUF[1]<<8)|BUF[0];
-	T_X/=16.4;
-
-	BUF[2]=Single_Read(MPU6050_Addr,GYRO_YOUT_L);
-	BUF[3]=Single_Read(MPU6050_Addr,GYRO_YOUT_H);
-	T_Y=	(BUF[3]<<8)|BUF[2];
-	T_Y/=16.4;
-	
-	BUF[4]=Single_Read(MPU6050_Addr,GYRO_ZOUT_L);
-	BUF[5]=Single_Read(MPU6050_Addr,GYRO_ZOUT_H);
-	T_Z=	(BUF[5]<<8)|BUF[4];
-	T_Z/=16.4;
-
-	BUF[6]=Single_Read(MPU6050_Addr,TEMP_OUT_L); 
-	BUF[7]=Single_Read(MPU6050_Addr,TEMP_OUT_H); 
-	T_T=(BUF[7]<<8)|BUF[6];
-	T_T = 35+ ((double) (T_T + 13200)) / 280;
-	
-	LCD_MPU6050(LINE1,T_X,T_Y,T_Z);
-		
-	return T_Z;
+    return HAL_I2C_Mem_Read(&hi2c2,
+                            MPU6050_ADDR,
+                            reg,
+                            I2C_MEMADD_SIZE_8BIT,
+                            value,
+                            1,
+                            100);
 }
 
-uint8_t	MPU6050_Read_ACCEL(void)
+/* 初始化 */
+void MPU6050_Init(void)
 {
-	unsigned char BUF[10];
-	short T_X,T_Y,T_Z,T_T;
-	
-	BUF[0]=Single_Read(MPU6050_Addr,ACCEL_XOUT_L); 
-	BUF[1]=Single_Read(MPU6050_Addr,ACCEL_XOUT_H);
-	T_X=	(BUF[1]<<8)|BUF[0];
-	T_X=(float)((float)T_X/16384)*100;
+    MPU6050_WriteReg(PWR_MGMT_1, 0x00);   // 唤醒
+    HAL_Delay(100);
 
-	BUF[2]=Single_Read(MPU6050_Addr,ACCEL_YOUT_L);
-	BUF[3]=Single_Read(MPU6050_Addr,ACCEL_YOUT_H);
-	T_Y=	(BUF[3]<<8)|BUF[2];
-	T_Y=(float)((float)T_Y/16384)*100;
-   
-	BUF[4]=Single_Read(MPU6050_Addr,ACCEL_ZOUT_L);
-	BUF[5]=Single_Read(MPU6050_Addr,ACCEL_ZOUT_H);
-	T_Z=	(BUF[5]<<8)|BUF[4];
-	T_Z=(float)((float)T_Z/16384)*100;
+    MPU6050_WriteReg(SMPLRT_DIV, 0x07);   // 采样分频
+    MPU6050_WriteReg(CONFIG, 0x06);       // DLPF 5Hz
 
-	
-	BUF[6]=Single_Read(MPU6050_Addr,TEMP_OUT_L); 
-	BUF[7]=Single_Read(MPU6050_Addr,TEMP_OUT_H); 
-	T_T=(BUF[7]<<8)|BUF[6];
-	T_T = 35+ ((double) (T_T + 13200)) / 280;
-	T_T = (((double) T_T )/340+36.53)*10 ;
-	
-	LCD_MPU6050(LINE2,T_X,T_Y,T_Z);
-	
-	return T_T;
+    MPU6050_WriteReg(INT_PIN_CFG, 0x02);  // 旁路模式使能（给磁力计用）
+    MPU6050_WriteReg(USER_CTRL, 0x00);    // 关闭I2C主机模式
+
+    MPU6050_WriteReg(GYRO_CONFIG, 0x18);  // ±2000 dps
+    MPU6050_WriteReg(ACCEL_CONFIG, 0x01);  // ±4g
 }
+
+/* 一次性读取全部原始数据 */
+HAL_StatusTypeDef MPU6050_ReadAllRaw(MPU6050_RawData_t *data)
+{
+    uint8_t buf[14];
+
+    if (HAL_I2C_Mem_Read(&hi2c2,
+                         MPU6050_ADDR,
+                         ACCEL_XOUT_H,
+                         I2C_MEMADD_SIZE_8BIT,
+                         buf,
+                         14,
+                         100) != HAL_OK)
+    {
+        return HAL_ERROR;
+    }
+
+    data->ax   = (int16_t)((buf[0] << 8) | buf[1]);
+    data->ay   = (int16_t)((buf[2] << 8) | buf[3]);
+    data->az   = (int16_t)((buf[4] << 8) | buf[5]);
+    data->temp = (int16_t)((buf[6] << 8) | buf[7]);
+    data->gx   = (int16_t)((buf[8] << 8) | buf[9]);
+    data->gy   = (int16_t)((buf[10] << 8) | buf[11]);
+    data->gz   = (int16_t)((buf[12] << 8) | buf[13]);
+
+    return HAL_OK;
+}
+
+/* 只读陀螺仪 */
+HAL_StatusTypeDef MPU6050_ReadGyroRaw(MPU6050_RawData_t *data)
+{
+    uint8_t buf[8];
+
+    if (HAL_I2C_Mem_Read(&hi2c2,
+                         MPU6050_ADDR,
+                         GYRO_XOUT_H,
+                         I2C_MEMADD_SIZE_8BIT,
+                         buf,
+                         8,
+                         100) != HAL_OK)
+    {
+        return HAL_ERROR;
+    }
+
+    data->gx   = (int16_t)((buf[0] << 8) | buf[1]);
+    data->gy   = (int16_t)((buf[2] << 8) | buf[3]);
+    data->gz   = (int16_t)((buf[4] << 8) | buf[5]);
+    data->temp = (int16_t)((buf[6] << 8) | buf[7]);
+
+    return HAL_OK;
+}
+
+/* 只读加速度计 */
+HAL_StatusTypeDef MPU6050_ReadAccelRaw(MPU6050_RawData_t *data)
+{
+    uint8_t buf[8];
+
+    if (HAL_I2C_Mem_Read(&hi2c2,
+                         MPU6050_ADDR,
+                         ACCEL_XOUT_H,
+                         I2C_MEMADD_SIZE_8BIT,
+                         buf,
+                         8,
+                         100) != HAL_OK)
+    {
+        return HAL_ERROR;
+    }
+
+    data->ax   = (int16_t)((buf[0] << 8) | buf[1]);
+    data->ay   = (int16_t)((buf[2] << 8) | buf[3]);
+    data->az   = (int16_t)((buf[4] << 8) | buf[5]);
+    data->temp = (int16_t)((buf[6] << 8) | buf[7]);
+
+    return HAL_OK;
+}
+float MPU6050_GetTemperature(int16_t raw_temp)
+{
+    return (float)raw_temp / 340.0f + 36.53f;
+}
+
+
+
+
